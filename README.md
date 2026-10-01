@@ -11,7 +11,8 @@ sleep; the library accepts real zero-argument callables and returns their result
 
 Requirements: GCC or Clang with C++17, CMake 3.16+, a build tool, and Bash for the
 CLI integration test. On Ubuntu, install `build-essential cmake` if needed.
-Catch2 v2.13.10 is included, so configuration needs no network connection.
+The zip includes Catch2 v2.13.10 for offline builds. A GitHub clone downloads
+the same SHA256-verified header on its first configure (internet required).
 
 ```sh
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
