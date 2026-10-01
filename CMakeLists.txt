@@ -20,7 +20,23 @@ target_link_libraries(scheduler_cli PRIVATE scheduler)
 include(CTest)
 if(BUILD_TESTING)
   add_executable(scheduler_tests tests/test_thread_pool.cpp)
-  target_include_directories(scheduler_tests SYSTEM PRIVATE third_party)
+  if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/third_party/catch.hpp")
+    set(CATCH_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/third_party")
+  else()
+    # The zip includes Catch2. A GitHub clone downloads this pinned header once.
+    set(CATCH_INCLUDE "${CMAKE_CURRENT_BINARY_DIR}/catch2")
+    file(MAKE_DIRECTORY "${CATCH_INCLUDE}")
+    file(DOWNLOAD
+      "https://raw.githubusercontent.com/catchorg/Catch2/v2.13.10/single_include/catch2/catch.hpp"
+      "${CATCH_INCLUDE}/catch.hpp"
+      EXPECTED_HASH SHA256=3725c0f0a75f376a5005dde31ead0feb8f7da7507644c201b814443de8355170
+      TLS_VERIFY ON STATUS CATCH_DOWNLOAD_STATUS)
+    list(GET CATCH_DOWNLOAD_STATUS 0 CATCH_DOWNLOAD_CODE)
+    if(NOT CATCH_DOWNLOAD_CODE EQUAL 0)
+      message(FATAL_ERROR "Catch2 download failed: ${CATCH_DOWNLOAD_STATUS}")
+    endif()
+  endif()
+  target_include_directories(scheduler_tests SYSTEM PRIVATE "${CATCH_INCLUDE}")
   target_link_libraries(scheduler_tests PRIVATE scheduler)
   add_test(NAME scheduler_tests COMMAND scheduler_tests)
   set_tests_properties(scheduler_tests PROPERTIES TIMEOUT 30)
