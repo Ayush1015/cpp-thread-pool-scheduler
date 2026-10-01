@@ -72,8 +72,6 @@ CLI or producer threads
 - `tests/test_thread_pool.cpp`: 14 Catch2 cases including concurrency and shutdown races.
 - `scripts/test_cli.sh`: scripted CLI success, invalid input, and invalid option checks.
 - `.github/workflows/ci.yml`: GCC/Clang build and tests on `ubuntu-latest`.
-- `WALKTHROUGH.md`: source-by-source explanation.
-- `INTERVIEW_QA.md`: interview practice and honest attribution guidance.
 - `TEST_RESULTS.md`: actual local verification, including limitations.
 
 All queue state and counters share one mutex. Workers sleep on a condition
@@ -128,11 +126,11 @@ https://github.com/Ayush1015/cpp-thread-pool-scheduler/actions/runs/36813662859
 Run the commands yourself, and verify new CI runs after your own changes.
 
 This starter was AI-assisted. Do not describe receiving it as independently
-building it. Read the walkthrough, explain the locking yourself, and make and test
-at least one meaningful change before presenting it as your project contribution.
-Examples: add elapsed-time stats, a CLI command that runs a real file-processing
-job, or cooperative cancellation with a documented safety contract. Keep a clear
-record of what you personally changed.
+building it. Explain the locking yourself, and make and test at least one
+meaningful change before presenting it as your project contribution. Examples: add
+elapsed-time stats, a CLI command that runs a real file-processing job, or
+cooperative cancellation with a documented safety contract. Keep a clear record
+of what you personally changed.
 
 ## License
 
