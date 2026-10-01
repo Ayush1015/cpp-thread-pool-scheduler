@@ -14,8 +14,10 @@ Environment: Linux x86_64, GCC 11.4.0, CMake 3.22.1, C++17, Catch2 2.13.10.
 - ThreadSanitizer: final full suite passed 10 repeat runs, no sanitizer reports.
 - Demo: five jobs accepted and completed; final queued=0, active=0, completed=5.
 - GitHub Actions YAML: parsed and checked with actionlint 1.7.12, no findings.
-- Hosted GitHub CI: not yet run at the time this local record was written.
-  Do not turn local actionlint validation into a claim of a hosted CI pass.
+- Hosted GitHub CI: GCC and Clang jobs both passed (build, CTest, concurrency).
+  Verified run: https://github.com/Ayush1015/cpp-thread-pool-scheduler/actions/runs/36813662859
+- Fresh public-repo clone: checksum-pinned Catch2 download, build, and all 3
+  CTest entries passed. Source matched the local tested files.
 
 An initial sanitizer run found warnings in the test-only four-worker gate using
 an extra condition variable and counter. That gate was changed to an atomic
