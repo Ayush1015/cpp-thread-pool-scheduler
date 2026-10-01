@@ -123,9 +123,9 @@ in `TEST_RESULTS.md` before describing sanitizer results to anyone.
 ## GitHub and resume use
 
 Upload this folder's contents, including `.github`, not the `build` directories.
-Run the commands yourself and confirm your own GitHub Actions run is green before
-claiming a hosted CI result. The included workflow has been checked locally, but
-has not yet run in your repository.
+The initial hosted GitHub Actions run passed both GCC and Clang jobs:
+https://github.com/Ayush1015/cpp-thread-pool-scheduler/actions/runs/36813662859
+Run the commands yourself, and verify new CI runs after your own changes.
 
 This starter was AI-assisted. Do not describe receiving it as independently
 building it. Read the walkthrough, explain the locking yourself, and make and test
