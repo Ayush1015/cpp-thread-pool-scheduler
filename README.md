@@ -125,13 +125,6 @@ The initial hosted GitHub Actions run passed both GCC and Clang jobs:
 https://github.com/Ayush1015/cpp-thread-pool-scheduler/actions/runs/36813662859
 Run the commands yourself, and verify new CI runs after your own changes.
 
-This starter was AI-assisted. Do not describe receiving it as independently
-building it. Explain the locking yourself, and make and test at least one
-meaningful change before presenting it as your project contribution. Examples: add
-elapsed-time stats, a CLI command that runs a real file-processing job, or
-cooperative cancellation with a documented safety contract. Keep a clear record
-of what you personally changed.
-
 ## License
 
 Project code and documentation: MIT (see `LICENSE`). Vendored Catch2 retains its
